@@ -1,4 +1,4 @@
-# Declaración del recurso aws_iam_user
+# Declare the aws_iam_user resource
 data "aws_iam_user" "example" {
   user_name = "kopsadmin"  # Or the username you are using
 }
