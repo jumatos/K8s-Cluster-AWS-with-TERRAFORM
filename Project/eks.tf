@@ -1,11 +1,11 @@
 # Declaración del recurso aws_iam_user
 data "aws_iam_user" "example" {
-  user_name = "kopsadmin"  # O el nombre de usuario que estás utilizando
+  user_name = "kopsadmin"  # Or the username you are using
 }
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "~> 19.0" # Nos aseguramos de que solo se actualizará la versión 19
+  version = "~> 19.0" # We make sure that only version 19 is updated
 
   cluster_name    = "jam-eks"
   cluster_version = "1.27"
