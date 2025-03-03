@@ -31,7 +31,7 @@ module "eks" {
 
   aws_auth_users = [
     {
-      userarn  = data.aws_iam_user.example.arn  # Referencia al recurso aws_iam_user.example
+      userarn  = data.aws_iam_user.example.arn  # Reference the aws_iam_user.example resource
       username = "kopsadmin"
       groups = [
         "system:masters"
@@ -58,17 +58,17 @@ module "eks" {
   }
 }
 
-# Obtener información del clúster EKS
+# Get EKS cluster information
 data "aws_eks_cluster" "cluster" {
   name = module.eks.cluster_name
 }
 
-# Obtener autenticación para el clúster EKS
+# Get authentication for the EKS cluster
 data "aws_eks_cluster_auth" "cluster" {
   name = module.eks.cluster_name
 }
 
-# Configuración del proveedor Kubernetes
+# Kubernetes Provider Configuration
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.cluster.endpoint
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
